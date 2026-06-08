@@ -1,5 +1,32 @@
 import streamlit as st
 import pandas as pd
+import re
+import os
+import json
+from dotenv import load_dotenv
+from google import genai
+
+# Load environment variables from .env file if it exists
+load_dotenv()
+from google.genai import types
+from pydantic import BaseModel, Field
+from tenacity import retry, stop_after_attempt, wait_exponential
+
+class ColumnMapEntry(BaseModel):
+    uploaded_column: str
+    internal_schema_field: str
+
+class ColumnMappingResult(BaseModel):
+    mapped_columns: list[ColumnMapEntry] = Field(description="List mapping uploaded column names to internal schema names")
+    missing_required_fields: list[str] = Field(description="List of required internal fields that are missing from the uploaded columns")
+    ignored_columns: list[str] = Field(description="List of uploaded column names that do not map to any required internal fields")
+
+class StatusMapEntry(BaseModel):
+    uploaded_status: str
+    allowed_status: str
+
+class StatusNormalizationResult(BaseModel):
+    status_mapping: list[StatusMapEntry] = Field(description="List mapping original status strings to allowed statuses")
 
 # Constants for validation
 REQUIRED_COLUMNS = [
@@ -18,6 +45,77 @@ ALLOWED_STATUSES = [
     "Delayed"
 ]
 
+@retry(stop=stop_after_attempt(5), wait=wait_exponential(multiplier=1, min=2, max=10))
+def call_llm_mapping(headers: list[str]) -> ColumnMappingResult:
+    api_key = os.environ.get("GEMINI_API_KEY")
+    client = genai.Client(api_key=api_key)
+    
+    prompt = f"""
+    You are an expert Data Engineer specializing in supply chain and procurement data integration.
+    Your task is to accurately map columns from a raw, uploaded dataset to our application's strictly defined internal schema.
+    
+    Internal Schema fields required and their definitions:
+    - `po_id`: The unique identifier for the purchase order (e.g., PO Number, Document ID).
+    - `supplier_name`: The name of the vendor, merchant, or supplier organization.
+    - `order_value`: The total monetary value or amount of the order.
+    - `expected_delivery_date`: The targeted or promised arrival date for the shipment (e.g., ETA, Delivery Deadline).
+    - `shipment_status`: The current logistics state of the order (e.g., Transit status, Stage).
+    - `supplier_previous_delays`: A numerical count of historical delays associated with this supplier.
+    
+    Uploaded columns found in the file:
+    {json.dumps(headers)}
+    
+    Instructions:
+    1. Map the uploaded columns to the internal schema based on deep semantic meaning and supply chain domain knowledge.
+    2. Handle abbreviations (e.g., 'vndr' -> supplier_name, 'val' -> order_value).
+    3. If an internal field is not represented in the uploaded columns, you MUST include it in the `missing_required_fields` list. Do not force a mapping if it's incorrect.
+    4. If an uploaded column is irrelevant to the internal schema, include it in `ignored_columns`.
+    5. Output strictly in the requested JSON schema format.
+    """
+    
+    response = client.models.generate_content(
+        model='gemini-2.5-flash',
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            response_mime_type="application/json",
+            response_schema=ColumnMappingResult,
+        ),
+    )
+    return ColumnMappingResult.model_validate_json(response.text)
+
+@retry(stop=stop_after_attempt(5), wait=wait_exponential(multiplier=1, min=2, max=10))
+def call_llm_status_normalization(unique_statuses: list[str]) -> StatusNormalizationResult:
+    api_key = os.environ.get("GEMINI_API_KEY")
+    client = genai.Client(api_key=api_key)
+    
+    prompt = f"""
+    You are a Logistics Expert data processor.
+    Your task is to normalize raw shipment status strings from various ERP and logistics systems into our standardized application categories.
+    
+    Uploaded Raw Statuses:
+    {json.dumps(unique_statuses)}
+    
+    Allowed Standard Categories:
+    {json.dumps(ALLOWED_STATUSES)}
+    
+    Instructions:
+    1. Map each raw status to exactly one of the allowed categories based on its semantic meaning.
+    2. For example, "shipped", "on the way", or "customs" should map to "In Transit".
+    3. For example, "booked", "pending", or "acknowledged" should map to "Not Started".
+    4. Only map a status if you are highly confident it fits into the allowed category. If it is completely ambiguous, do not map it.
+    5. Output strictly in the requested JSON schema format.
+    """
+    
+    response = client.models.generate_content(
+        model='gemini-2.5-flash',
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            response_mime_type="application/json",
+            response_schema=StatusNormalizationResult,
+        ),
+    )
+    return StatusNormalizationResult.model_validate_json(response.text)
+
 def load_data(uploaded_file):
     """Loads uploaded file into a pandas DataFrame."""
     try:
@@ -32,41 +130,95 @@ def load_data(uploaded_file):
         st.error(f"Error reading file: {e}")
         return None
 
-def validate_data(df):
-    """Validates the dataframe against required schema and rules."""
+def clean_numeric(series):
+    """Strips currency symbols and commas, coerces to float."""
+    def clean_val(val):
+        if pd.isna(val):
+            return pd.NA
+        val_str = str(val)
+        cleaned = re.sub(r'[^\d.-]', '', val_str)
+        try:
+            return float(cleaned)
+        except ValueError:
+            return pd.NA
+    return series.apply(clean_val)
+
+def map_columns(df):
+    """Maps varying column names to REQUIRED_COLUMNS."""
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        st.warning("⚠ LLM-powered column mapping is unavailable until a valid GEMINI_API_KEY is configured in the environment.")
+        return None
+        
+    df_cols = list(df.columns)
     
-    # 1. Validate required columns
-    missing_columns = [col for col in REQUIRED_COLUMNS if col not in df.columns]
-    if missing_columns:
-        st.error(f"**Missing Required Column(s):**\n\n{', '.join(missing_columns)}")
-        return False
-
-    # 2. Validate shipment status values
-    invalid_statuses = df[~df['shipment_status'].isin(ALLOWED_STATUSES)]['shipment_status'].dropna().unique()
-    if len(invalid_statuses) > 0:
-        st.error(f"**Invalid shipment status found:**\n\n{', '.join(invalid_statuses)}\n\n**Allowed values:**\n\n{', '.join(ALLOWED_STATUSES)}")
-        return False
-
-    # 3. Validate expected_delivery_date
-    try:
-        # Attempt to convert to datetime; coerce errors to NaT to find invalid dates
-        parsed_dates = pd.to_datetime(df['expected_delivery_date'], errors='coerce')
-        
-        # If there were non-null values originally that became NaT, they are invalid dates
-        original_notnull = df['expected_delivery_date'].notna()
-        invalid_dates_mask = original_notnull & parsed_dates.isna()
-        
-        if invalid_dates_mask.any():
-            st.error("**Invalid delivery date detected in expected_delivery_date column.**")
-            return False
+    with st.spinner("Analyzing columns with LLM..."):
+        try:
+            mapping_result = call_llm_mapping(df_cols)
+        except Exception as e:
+            st.error(f"Error calling LLM for column mapping: {e}")
+            return None
             
-        # Optional: Replace the column with parsed datetime objects for future processing
-        df['expected_delivery_date'] = parsed_dates
+    if mapping_result.mapped_columns:
+        mapping_dict = {entry.uploaded_column: entry.internal_schema_field for entry in mapping_result.mapped_columns}
+        df.rename(columns=mapping_dict, inplace=True)
+        mapped_msg = "\n".join([f"* {k} → {v}" for k, v in mapping_dict.items()])
+        st.success(f"**Detected Column Mapping:**\n{mapped_msg}")
         
-    except Exception:
-        st.error("**Invalid delivery date detected in expected_delivery_date column.**")
-        return False
+    if mapping_result.missing_required_fields:
+        missing_msg = "\n".join([f"* {col}" for col in mapping_result.missing_required_fields])
+        st.warning(f"**⚠ Missing Required Fields:**\n{missing_msg}\n\nSome risk rules may be skipped due to unavailable data.")
+        for col in mapping_result.missing_required_fields:
+            df[col] = pd.NA
+            
+    return df[REQUIRED_COLUMNS]
 
+def clean_data(df):
+    """Cleans data values and normalizes statuses."""
+    if 'order_value' in df.columns:
+        df['order_value'] = clean_numeric(df['order_value'])
+    if 'supplier_previous_delays' in df.columns:
+        df['supplier_previous_delays'] = clean_numeric(df['supplier_previous_delays'])
+        
+    if 'expected_delivery_date' in df.columns:
+        df['expected_delivery_date'] = pd.to_datetime(df['expected_delivery_date'], errors='coerce')
+        
+    if 'shipment_status' in df.columns and not df['shipment_status'].isna().all():
+        unique_statuses = df['shipment_status'].dropna().unique().tolist()
+        if unique_statuses:
+            with st.spinner("Normalizing shipment statuses with LLM..."):
+                try:
+                    status_result = call_llm_status_normalization(unique_statuses)
+                    status_mapping = {entry.uploaded_status: entry.allowed_status for entry in status_result.status_mapping}
+                except Exception as e:
+                    st.error(f"Error calling LLM for status normalization: {e}")
+                    status_mapping = {}
+            
+            if status_mapping:
+                mapped_status_msg = "\n".join([f"* '{k}' → '{v}'" for k, v in status_mapping.items()])
+                st.success(f"**Detected Status Mapping:**\n{mapped_status_msg}")
+                
+            df['shipment_status'] = df['shipment_status'].apply(
+                lambda val: status_mapping.get(str(val).strip(), val) if pd.notna(val) else pd.NA
+            )
+        
+    return df
+
+def validate_data(df):
+    """Non-blocking validation that warns users of missing/invalid data."""
+    # We no longer fail the file; we just warn.
+    for col in REQUIRED_COLUMNS:
+        if df[col].isna().all():
+            st.warning(f"**Warning:** The required column '{col}' is entirely empty. Risk rules depending on this field will be skipped.")
+            
+    unknown_statuses = df[~df['shipment_status'].isin(ALLOWED_STATUSES) & df['shipment_status'].notna()]
+    if not unknown_statuses.empty:
+        st.warning(f"**Warning:** Found {len(unknown_statuses)} rows with unrecognized shipment statuses.")
+        
+    invalid_dates_mask = df['expected_delivery_date'].isna()
+    if invalid_dates_mask.any():
+        st.warning(f"**Warning:** Found {invalid_dates_mask.sum()} rows with invalid or missing expected delivery dates. Delivery-date-based risk rules will be skipped for these rows.")
+        
     return True
 
 def evaluate_po(row, today):
@@ -88,7 +240,7 @@ def evaluate_po(row, today):
         reasons.append("Delivery date missed")
         
     # Rule 2 — Shipment Not Started
-    if status == "Not Started":
+    if pd.notna(status) and status == "Not Started":
         score += 30
         reasons.append("Shipment not started")
         
@@ -103,7 +255,7 @@ def evaluate_po(row, today):
         reasons.append("High value order")
         
     # Bonus Rule — Delivery Date Approaching
-    if pd.notnull(expected_date) and status == "Not Started" and today <= expected_date and days_until_delivery <= 3:
+    if pd.notnull(expected_date) and pd.notna(status) and status == "Not Started" and today <= expected_date and days_until_delivery <= 3:
         score += 25
         reasons.append("Delivery date approaching but shipment not started")
         
@@ -209,13 +361,17 @@ def main():
         df = load_data(uploaded_file)
         
         if df is not None:
-            is_valid = validate_data(df)
+            df = map_columns(df)
             
-            if is_valid:
-                df = calculate_risk(df)
-                df = classify_and_recommend(df)
-                st.success(f"**{len(df)} Orders Analyzed Successfully**\n\nValidation, risk calculation, and recommendations complete.")
-                render_dashboard(df)
+            if df is not None:
+                df = clean_data(df)
+                is_valid = validate_data(df)
+                
+                if is_valid:
+                    df = calculate_risk(df)
+                    df = classify_and_recommend(df)
+                    st.success(f"**{len(df)} Orders Analyzed Successfully**\n\nValidation, risk calculation, and recommendations complete.")
+                    render_dashboard(df)
 
 if __name__ == "__main__":
     main()

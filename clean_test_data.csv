@@ -1,0 +1,31 @@
+po_id,supplier_name,order_value,expected_delivery_date,shipment_status,supplier_previous_delays
+PO-2001,Acme Corp,5000,2026-06-15,In Transit,0
+PO-2002,Global Supplies,12000,2026-06-02,Delayed,3
+PO-2003,TechParts Inc,8500,2026-06-15,Not Started,1
+PO-2004,FastLogistics,120000,2026-06-20,In Transit,0
+PO-2005,Alpha Electronics,4000,2026-06-05,Not Started,0
+PO-2006,MegaCorp,150000,2026-06-01,Not Started,4
+PO-2007,Beta Co,25000,2026-06-04,Not Started,0
+PO-2008,Gamma Inc,35000,2026-06-10,Delivered,1
+PO-2009,Delta LLC,45000,2026-06-01,Delayed,2
+PO-2010,Epsilon Corp,105000,2026-06-12,In Transit,1
+PO-2011,Zeta Goods,50000,2026-06-03,Not Started,3
+PO-2012,Eta Logistics,60000,2026-06-18,In Transit,0
+PO-2013,Theta Supplies,70000,2026-06-05,Not Started,1
+PO-2014,Iota Parts,80000,2026-06-25,In Transit,0
+PO-2015,Kappa Systems,90000,2026-06-02,Delayed,4
+PO-2016,Lambda Materials,15000,2026-06-10,Not Started,0
+PO-2017,Mu Devices,25000,2026-06-06,Not Started,0
+PO-2018,Nu Tech,110000,2026-06-04,Not Started,0
+PO-2019,Xi Components,5000,2026-06-15,In Transit,0
+PO-2020,Omicron Group,7500,2026-06-14,In Transit,0
+PO-2021,Pi Manufacturing,130000,2026-06-10,In Transit,2
+PO-2022,Rho Services,12000,2026-05-30,Delayed,5
+PO-2023,Sigma Corp,8500,2026-06-04,In Transit,0
+PO-2024,Tau Industries,9500,2026-06-20,Not Started,1
+PO-2025,Upsilon Enterprises,15000,2026-06-07,Not Started,0
+PO-2026,Phi Solutions,20000,2026-06-11,Delivered,0
+PO-2027,Chi Trading,250000,2026-06-22,In Transit,0
+PO-2028,Psi Ventures,30000,2026-06-02,Not Started,3
+PO-2029,Omega Ltd,40000,2026-06-08,In Transit,1
+PO-2030,Acme Corp,55000,2026-06-15,Delivered,0

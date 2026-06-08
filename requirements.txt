@@ -1,3 +1,7 @@
 streamlit
 pandas
 openpyxl
+google-genai
+pydantic
+python-dotenv
+tenacity

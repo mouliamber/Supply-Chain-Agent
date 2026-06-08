@@ -4,7 +4,7 @@ A lightweight, rule-based supply chain monitoring agent built with Python and St
 
 ## Features
 
-* **Data Ingestion & Validation:** Upload CSV or Excel files containing your purchase orders. The system automatically validates schema requirements, status values, and expected delivery dates.
+* **AI-Powered Data Ingestion:** Upload CSV or Excel files containing your purchase orders. The system uses Gemini 2.5 Flash to automatically map your custom column names to the internal schema and normalize varying shipment statuses (e.g., mapping "shipped" to "In Transit").
 * **Risk Detection Engine:** Evaluates each purchase order against clearly defined business rules:
   * Delivery Date Missed (+40)
   * Shipment Not Started (+30)
@@ -23,6 +23,12 @@ A lightweight, rule-based supply chain monitoring agent built with Python and St
 
 ```bash
 pip install -r requirements.txt
+```
+
+4. **Environment Setup:** Create a `.env` file in the root directory and add your Google Gemini API key (required for smart column mapping and status normalization):
+
+```env
+GEMINI_API_KEY=your_api_key_here
 ```
 
 ## Usage
