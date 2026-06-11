@@ -1,0 +1,101 @@
+doc_ref,spl_org,tot_amt,eta_dt,trk_stat,prev_fails
+REQ-9001,Aero Forge,450.00,2026-05-27,stuck in customs,0
+REQ-9002,Bio Dynamics,"$1,200.50",06/01/26,left warehouse,One
+REQ-9003,Cyber Link,890,05-Jun-2026,driver delayed,2
+REQ-9004,Data Mine,34.99,2026-06-12,pending approval,0
+REQ-9005,,560.25,05/29/26,received,1
+REQ-9006,Eco Sphere,990,14-Jun-2026,lost,0
+REQ-9007,Fin Haven,"$5,000.00",2026-07-02,on the truck,3
+REQ-9008,Geo Spatial,,06/10/26,stuck in customs,None
+REQ-9009,Health Matrix,112.50,18-Jun-2026,left warehouse,0
+REQ-9010,Info Grid,4500,2026-05-30,driver delayed,4
+REQ-9011,Jet Stream Corp,"$2,450.75",06/22/26,pending approval,1
+REQ-9012,Kinex Solutions,760,25-Jun-2026,received,0
+REQ-9013,Lumina Tech,120.00,2026-07-05,lost,Two
+REQ-9014,Micro Forge,98.50,05/31/26,on the truck,0
+REQ-9015,Nano Systems,330,08-Jun-2026,stuck in customs,5
+REQ-9016,Omni Source,"$10,000.00",2026-06-15,left warehouse,0
+REQ-9017,Pharma Core,,06/28/26,driver delayed,1
+REQ-9018,Quadra Group,770,01-Jul-2026,pending approval,0
+REQ-9019,Robo Works,45.20,2026-05-28,received,Three
+REQ-9020,Solar Flare,"$3,100.00",06/04/26,lost,2
+REQ-9021,Terra Firm,550,11-Jun-2026,on the truck,0
+REQ-9022,Ultra Dynamics,890.99,2026-06-20,stuck in customs,1
+REQ-9023,Viva Tech,"$4,560.00",06/30/26,left warehouse,None
+REQ-9024,,1200,04-Jul-2026,driver delayed,0
+REQ-9025,Web Scale,430,2026-07-07,pending approval,2
+REQ-9026,Xcel Partners,15.50,05/27/26,received,0
+REQ-9027,Yota Supply,"$1,110.00",09-Jun-2026,lost,3
+REQ-9028,Zeta Protocol,880,2026-06-17,on the truck,1
+REQ-9029,Atlas Labs,,06/24/26,stuck in customs,0
+REQ-9030,Beacon Corp,340.20,01-Jul-2026,left warehouse,Four
+REQ-9031,Crest View,900,2026-05-31,driver delayed,0
+REQ-9032,Dusk Traders,"$2,220.00",06/07/26,pending approval,1
+REQ-9033,Echo Valley,450.50,15-Jun-2026,received,2
+REQ-9034,Forge Ahead,670,2026-06-25,lost,0
+REQ-9035,Glow Systems,88.99,06/02/26,on the truck,1
+REQ-9036,Halt Corp,"$5,400.00",21-Jun-2026,stuck in customs,0
+REQ-9037,Ignite LLC,210,2026-07-06,left warehouse,Five
+REQ-9038,Jump Start,500,05/29/26,driver delayed,0
+REQ-9039,Kite Flyers,,12-Jun-2026,pending approval,3
+REQ-9040,Lunar Base,1100,2026-06-19,received,0
+REQ-9041,Max Output,"$3,300.50",06/29/26,lost,1
+REQ-9042,Nebula Goods,420,08-Jul-2026,on the truck,0
+REQ-9043,Optic Nerve,150.75,2026-05-30,stuck in customs,Two
+REQ-9044,,890,06/05/26,left warehouse,0
+REQ-9045,Pulse Rate,200,16-Jun-2026,driver delayed,4
+REQ-9046,Quest Line,"$1,800.00",2026-06-26,pending approval,0
+REQ-9047,Rift Valley,340,07/04/26,received,1
+REQ-9048,Stone Bridge,760.50,28-May-2026,lost,0
+REQ-9049,Tide Water,90,2026-06-10,on the truck,One
+REQ-9050,Urge Co,"$2,900.00",06/18/26,stuck in customs,2
+REQ-9051,Vast Reaches,430.10,27-Jun-2026,left warehouse,0
+REQ-9052,Warp Drive,550,2026-07-03,driver delayed,3
+REQ-9053,X-Ray Labs,,06/08/26,pending approval,0
+REQ-9054,Yield Corp,210,14-Jun-2026,received,1
+REQ-9055,Zephyr Winds,"$4,100.00",2026-06-23,lost,0
+REQ-9056,Aqua Marine,880.80,01-Jul-2026,on the truck,Four
+REQ-9057,Blaze Tech,120,05-Jun-2026,stuck in customs,0
+REQ-9058,Core Concepts,990,2026-06-15,left warehouse,2
+REQ-9059,Drive Motors,"$1,550.00",06/25/26,driver delayed,0
+REQ-9060,Edge Cases,45.60,04-Jul-2026,pending approval,5
+REQ-9061,Flow State,300,2026-05-28,received,0
+REQ-9062,Grid Iron,,06/03/26,lost,None
+REQ-9063,Hush LLC,670,12-Jun-2026,on the truck,1
+REQ-9064,Iron Clad,"$8,200.00",2026-06-21,stuck in customs,0
+REQ-9065,Jolt Energy,110.25,06/30/26,left warehouse,2
+REQ-9066,,440,08-Jul-2026,driver delayed,0
+REQ-9067,Knot Works,950,2026-06-01,pending approval,Three
+REQ-9068,Loop Hole,"$3,050.00",06/09/26,received,0
+REQ-9069,Mint Condition,250,19-Jun-2026,lost,1
+REQ-9070,Node Point,780.40,2026-06-28,on the truck,0
+REQ-9071,Oath Keepers,500,05-Jul-2026,stuck in customs,4
+REQ-9072,Peak Performance,15.99,29-May-2026,left warehouse,0
+REQ-9073,Quiet Storm,"$6,000.00",2026-06-14,driver delayed,Two
+REQ-9074,Rush Hour,330,06/22/26,pending approval,0
+REQ-9075,Snap Tech,420,01-Jul-2026,received,1
+REQ-9076,Twist Dynamics,90.50,2026-06-06,lost,0
+REQ-9077,Unify Goods,,06/16/26,on the truck,0
+REQ-9078,Vibe Corp,"$1,750.00",25-Jun-2026,stuck in customs,3
+REQ-9079,Wire Frame,560,2026-07-04,left warehouse,1
+REQ-9080,Xtra Parts,110,31-May-2026,driver delayed,0
+REQ-9081,Yawn Labs,880,2026-06-11,pending approval,Five
+REQ-9082,Zip Code LLC,"$2,600.00",06/20/26,received,0
+REQ-9083,Arcane Systems,430.75,29-Jun-2026,lost,2
+REQ-9084,Bold Move,120,2026-07-08,on the truck,0
+REQ-9085,Cold Steel,990,05-Jun-2026,stuck in customs,1
+REQ-9086,,"$4,900.00",2026-06-17,left warehouse,None
+REQ-9087,Dark Matter,250,06/26/26,driver delayed,0
+REQ-9088,Easy Going,670,05-Jul-2026,pending approval,3
+REQ-9089,Fast Track,80.20,2026-05-30,received,0
+REQ-9090,Good News,540,06/08/26,lost,Four
+REQ-9091,Heavy Duty,"$3,800.00",18-Jun-2026,on the truck,0
+REQ-9092,Inner Circle,110,2026-06-27,stuck in customs,1
+REQ-9093,Just Right,760,06-Jul-2026,left warehouse,0
+REQ-9094,Key Stone,900.50,01-Jun-2026,driver delayed,2
+REQ-9095,Light House,"$1,350.00",2026-06-13,pending approval,0
+REQ-9096,Main Stream,340,06/24/26,received,One
+REQ-9097,Next Level,220,03-Jul-2026,lost,0
+REQ-9098,Old School,560.80,2026-06-03,on the truck,3
+REQ-9099,Prime Time,150,12-Jun-2026,stuck in customs,0
+REQ-9100,Quick Fix,"$5,500.00",2026-06-21,left warehouse,2

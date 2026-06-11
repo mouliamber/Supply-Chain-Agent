@@ -1,0 +1,101 @@
+PurchaseOrder_Num,Vendor_Org,Total_Amt_USD,Est_Arrival_Dt,Current_Stage,Hist_Delay_Count
+PO-3005,FastLogistics,21617,2026-06-05,Not Started,0
+PO-3063,Epsilon Corp,6315,2026-06-21,Delivered,1
+PO-3091,Delta LLC,35345,2026-06-18,In Transit,0
+PO-3076,TechParts Inc,14867,2026-06-22,Delivered,0
+PO-3030,Gamma Inc,36271,2026-06-23,Not Started,2
+PO-3021,Gamma Inc,4329,2026-06-21,Not Started,0
+PO-3051,Zeta Goods,15619,2026-06-25,In Transit,0
+PO-3088,Beta Co,13255,2026-06-16,Delivered,0
+PO-3072,Epsilon Corp,4738,2026-06-20,In Transit,0
+PO-3007,TechParts Inc,25512,2026-06-09,Not Started,2
+PO-3029,Delta LLC,39885,2026-06-19,Not Started,2
+PO-3001,Gamma Inc,31577,2026-06-01,Not Started,0
+PO-3071,Epsilon Corp,5983,2026-06-18,In Transit,0
+PO-3039,Zeta Goods,33703,2026-06-19,Not Started,1
+PO-3081,Beta Co,2260,2026-06-18,In Transit,2
+PO-3057,Beta Co,11793,2026-06-19,In Transit,0
+PO-3026,FastLogistics,12801,2026-06-20,Not Started,2
+PO-3044,Delta LLC,5355,2026-06-18,Not Started,2
+PO-3077,TechParts Inc,35534,2026-06-23,Delivered,0
+PO-3070,Gamma Inc,42139,2026-06-23,In Transit,2
+PO-3038,Beta Co,24545,2026-06-14,Not Started,0
+PO-3000,Alpha Electronics,2138,2026-06-07,Not Started,2
+PO-3010,TechParts Inc,19373,2026-06-01,Not Started,2
+PO-3089,Gamma Inc,16473,2026-06-24,Delivered,2
+PO-3009,Gamma Inc,25059,2026-06-02,Not Started,2
+PO-3073,Beta Co,38846,2026-06-20,In Transit,2
+PO-3074,Epsilon Corp,5507,2026-06-20,Delivered,0
+PO-3019,Global Supplies,8716,2026-06-18,Not Started,2
+PO-3046,Epsilon Corp,44842,2026-06-18,Not Started,2
+PO-3003,Delta LLC,8942,2026-06-01,Not Started,0
+PO-3086,MegaCorp,39499,2026-06-16,Delivered,0
+PO-3094,Gamma Inc,40121,2026-06-18,In Transit,0
+PO-3053,Acme Corp,43751,2026-06-14,Delivered,1
+PO-3025,Epsilon Corp,42127,2026-06-21,Not Started,0
+PO-3052,Acme Corp,7230,2026-06-20,In Transit,0
+PO-3098,Beta Co,25608,2026-06-21,Delivered,2
+PO-3092,TechParts Inc,37678,2026-06-17,In Transit,1
+PO-3080,Epsilon Corp,14372,2026-06-17,In Transit,1
+PO-3028,Beta Co,30110,2026-06-17,Not Started,0
+PO-3002,Acme Corp,39234,2026-06-08,Not Started,1
+PO-3008,Global Supplies,3010,2026-06-07,Not Started,1
+PO-3060,Gamma Inc,23916,2026-06-14,In Transit,2
+PO-3041,Gamma Inc,39667,2026-06-23,Not Started,0
+PO-3031,MegaCorp,3884,2026-06-23,Not Started,0
+PO-3027,Gamma Inc,32303,2026-06-19,Not Started,0
+PO-3040,Delta LLC,43537,2026-06-14,Not Started,2
+PO-3067,Delta LLC,2489,2026-06-20,In Transit,1
+PO-3043,Beta Co,17556,2026-06-22,Not Started,0
+PO-3013,TechParts Inc,29253,2026-06-25,Not Started,2
+PO-3078,Gamma Inc,19368,2026-06-17,In Transit,1
+PO-3022,Acme Corp,32338,2026-06-15,Not Started,2
+PO-3084,FastLogistics,10830,2026-06-25,In Transit,2
+PO-3085,MegaCorp,28886,2026-06-25,Delivered,1
+PO-3023,Delta LLC,48916,2026-06-23,Not Started,1
+PO-3050,Alpha Electronics,49893,2026-06-25,Delivered,2
+PO-3090,TechParts Inc,30873,2026-06-15,In Transit,2
+PO-3097,TechParts Inc,33616,2026-06-23,In Transit,0
+PO-3093,Beta Co,10957,2026-06-22,In Transit,1
+PO-3045,Zeta Goods,36375,2026-06-15,Not Started,0
+PO-3015,Zeta Goods,33214,2026-06-17,Not Started,1
+PO-3082,FastLogistics,45358,2026-06-19,In Transit,2
+PO-3096,Acme Corp,17014,2026-06-22,Delivered,1
+PO-3059,Gamma Inc,10024,2026-06-16,In Transit,1
+PO-3095,Global Supplies,18875,2026-06-17,In Transit,2
+PO-3068,Alpha Electronics,10484,2026-06-22,Delivered,0
+PO-3058,Epsilon Corp,46440,2026-06-14,Delivered,1
+PO-3004,Delta LLC,49089,2026-06-07,Not Started,1
+PO-3018,Delta LLC,2603,2026-06-15,Not Started,2
+PO-3062,Acme Corp,49809,2026-06-21,Delivered,2
+PO-3066,Beta Co,5739,2026-06-21,In Transit,0
+PO-3048,Acme Corp,4879,2026-06-21,Not Started,1
+PO-3079,Delta LLC,36173,2026-06-17,Delivered,2
+PO-3049,Beta Co,37035,2026-06-21,Not Started,2
+PO-3055,Beta Co,18878,2026-06-25,Delivered,0
+PO-3099,Gamma Inc,29575,2026-06-20,In Transit,2
+PO-3083,Delta LLC,3645,2026-06-21,In Transit,0
+PO-3014,Delta LLC,31564,2026-06-14,Not Started,2
+PO-3061,Beta Co,13268,2026-06-19,Delivered,2
+PO-3035,Alpha Electronics,25891,2026-06-17,Not Started,2
+PO-3075,Beta Co,29631,2026-06-18,In Transit,1
+PO-3020,Delta LLC,13057,2026-06-15,Not Started,2
+PO-3042,Delta LLC,39334,2026-06-20,Not Started,2
+PO-3033,Gamma Inc,27762,2026-06-24,Not Started,2
+PO-3032,Epsilon Corp,10119,2026-06-20,Not Started,0
+PO-3036,Gamma Inc,32212,2026-06-18,Not Started,2
+PO-3087,Beta Co,34723,2026-06-19,Delivered,1
+PO-3065,FastLogistics,17102,2026-06-15,Delivered,0
+PO-3017,TechParts Inc,32399,2026-06-20,Not Started,2
+PO-3012,Acme Corp,1543,2026-06-23,Not Started,1
+PO-3069,Global Supplies,5549,2026-06-14,Delivered,1
+PO-3006,Zeta Goods,42750,2026-06-05,Not Started,1
+PO-3034,Epsilon Corp,35978,2026-06-25,Not Started,1
+PO-3064,FastLogistics,11762,2026-06-20,Delivered,2
+PO-3047,TechParts Inc,27188,2026-06-25,Not Started,1
+PO-3037,Epsilon Corp,49780,2026-06-25,Not Started,2
+PO-3056,Epsilon Corp,21045,2026-06-20,Delivered,0
+PO-3024,Global Supplies,48416,2026-06-16,Not Started,2
+PO-3011,Beta Co,12929,2026-06-05,Not Started,0
+PO-3016,Delta LLC,37939,2026-06-17,Not Started,1
+PO-3054,Epsilon Corp,7130,2026-06-19,Delivered,0

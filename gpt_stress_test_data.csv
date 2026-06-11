@@ -1,0 +1,101 @@
+PO#,vndr_nm,val_usd,est_dt,ship_sig,hist_late
+PO-1001,Acme Nexus,15420,2026-05-27,left warehouse,0
+PO-1002,Blue Orbit LLC,9820,05/28/26,on the truck,1
+PO-1003,Cobalt Ridge,7600,29-May-2026,driver delayed,2
+PO-1004,Delta Forge,"$12,450",2026-05-30,stuck in customs,3
+PO-1005,EverPeak Ltd,4300,05/31/26,pending approval,4
+PO-1006,Fusion Harbor,22100,01-Jun-2026,received,5
+PO-1007,Granite Works,11880,2026-06-02,lost,None
+PO-1008,Helix Supply,6400,06/03/26,left warehouse,2
+PO-1009,Iron Bloom,8750,04-Jun-2026,on the truck,1
+PO-1010,,9900,2026-06-05,driver delayed,0
+PO-1011,Jade Circuit,5600,06/06/26,pending approval,3
+PO-1012,Kilo Merchants,"$18,900",07-Jun-2026,received,2
+PO-1013,Lumen Trade,13450,2026-06-08,stuck in customs,4
+PO-1014,Metro Axis,7200,06/09/26,left warehouse,1
+PO-1015,Northwind Parts,,10-Jun-2026,on the truck,0
+PO-1016,Omega Fabrication,15800,2026-06-11,driver delayed,Two
+PO-1017,Pinnacle Source,4900,06/12/26,pending approval,2
+PO-1018,Quantum Cartage,11200,13-Jun-2026,received,3
+PO-1019,Riverbend Corp,"$25,300",2026-06-14,lost,5
+PO-1020,Summit Link,6700,06/15/26,left warehouse,1
+PO-1021,Titan Elements,8300,16-Jun-2026,stuck in customs,0
+PO-1022,Unity Goods,14550,2026-06-17,on the truck,2
+PO-1023,Vector Point,9100,06/18/26,driver delayed,4
+PO-1024,West Harbor,5200,19-Jun-2026,pending approval,3
+PO-1025,Xeno Industrial,"$14,780",2026-06-20,received,Four
+PO-1026,Yonder Labs,6100,06/21/26,left warehouse,1
+PO-1027,Zenith Components,7800,22-Jun-2026,on the truck,2
+PO-1028,Argo Dynamics,16800,2026-06-23,stuck in customs,5
+PO-1029,BrightPath Inc,4500,06/24/26,received,0
+PO-1030,,10400,25-Jun-2026,driver delayed,1
+PO-1031,CoreSpan,8900,2026-06-26,pending approval,2
+PO-1032,Driftline Co,"$21,600",06/27/26,left warehouse,3
+PO-1033,Easton Trade,7300,28-Jun-2026,on the truck,4
+PO-1034,Falcon Ridge,9500,2026-06-29,lost,5
+PO-1035,GigaSource,,06/30/26,received,0
+PO-1036,Horizon Works,12800,01-Jul-2026,stuck in customs,One
+PO-1037,Indigo Freight,5400,2026-07-02,left warehouse,2
+PO-1038,Jetstream Goods,6600,07/03/26,driver delayed,1
+PO-1039,Keystone Supply,"$11,250",04-Jul-2026,pending approval,3
+PO-1040,Lattice Group,17400,2026-07-05,on the truck,4
+PO-1041,Mosaic Industrial,8200,07/06/26,received,5
+PO-1042,Nova Materials,9700,07-Jul-2026,left warehouse,0
+PO-1043,Oakline Systems,6100,2026-07-08,stuck in customs,2
+PO-1044,Prism Ventures,"$13,900",06/15/26,driver delayed,3
+PO-1045,Quarry Point,7100,16-Jun-2026,pending approval,1
+PO-1046,Redwood Source,8800,2026-06-18,received,2
+PO-1047,Silver Arc,5300,06/20/26,on the truck,Three
+PO-1048,Topaz Logistics,14900,22-Jun-2026,left warehouse,4
+PO-1049,Urban Matrix,"$19,700",2026-06-24,lost,5
+PO-1050,,10200,06/26/26,stuck in customs,0
+PO-1051,Vantage Peak,6400,28-Jun-2026,driver delayed,1
+PO-1052,Willow Creek,8600,2026-06-30,pending approval,2
+PO-1053,Xacta Holdings,7800,07/02/26,received,3
+PO-1054,Yukon Trade,9300,04-Jul-2026,left warehouse,4
+PO-1055,Zen Merchants,,2026-07-06,on the truck,5
+PO-1056,Alpha Harbor,"$10,800",07/08/26,stuck in customs,Five
+PO-1057,Beta Ridge,5700,2026-05-29,driver delayed,0
+PO-1058,Cascade Works,12100,05/30/26,pending approval,1
+PO-1059,Dynamo Goods,6800,31-May-2026,received,2
+PO-1060,Elevate Corp,8400,2026-06-01,left warehouse,3
+PO-1061,Frontier Link,"$15,200",06/02/26,on the truck,4
+PO-1062,GlobeSpan,7600,03-Jun-2026,lost,0
+PO-1063,Highland Parts,9100,2026-06-04,stuck in customs,1
+PO-1064,Innova Trade,6200,06/05/26,driver delayed,2
+PO-1065,Junction Supply,13400,06-Jun-2026,pending approval,3
+PO-1066,Kingfisher LLC,"$22,100",2026-06-07,received,4
+PO-1067,Longview Goods,5500,06/08/26,left warehouse,Two
+PO-1068,Meridian Fabrication,8700,09-Jun-2026,on the truck,5
+PO-1069,Nimbus Source,9900,2026-06-10,stuck in customs,0
+PO-1070,,7100,06/11/26,driver delayed,1
+PO-1071,Orion Dynamics,14600,12-Jun-2026,pending approval,2
+PO-1072,Polar Axis,"$12,990",2026-06-13,received,3
+PO-1073,Quanta Works,6300,06/14/26,left warehouse,4
+PO-1074,Radiant Corp,8100,15-Jun-2026,on the truck,5
+PO-1075,Sierra Components,,2026-06-16,lost,0
+PO-1076,Trident Logistics,11700,06/17/26,stuck in customs,1
+PO-1077,Uplink Materials,6900,18-Jun-2026,driver delayed,None
+PO-1078,Vertex Industrial,"$16,450",2026-06-19,pending approval,3
+PO-1079,Waypoint Goods,7400,06/20/26,received,4
+PO-1080,Xplore Trade,9800,21-Jun-2026,left warehouse,5
+PO-1081,Yarrow Systems,5200,2026-06-22,on the truck,0
+PO-1082,ZenCore,8800,06/23/26,stuck in customs,1
+PO-1083,Apex Route,"$14,100",24-Jun-2026,driver delayed,2
+PO-1084,Bridgewater Co,6100,2026-06-25,pending approval,3
+PO-1085,Crown Harbor,7900,06/26/26,received,Four
+PO-1086,Deepwell Ltd,12500,27-Jun-2026,left warehouse,5
+PO-1087,EdgePoint,6700,2026-06-28,on the truck,0
+PO-1088,Fieldstone Inc,"$20,300",06/29/26,lost,1
+PO-1089,Greenline Trade,8300,30-Jun-2026,stuck in customs,2
+PO-1090,,9400,2026-07-01,driver delayed,3
+PO-1091,Harbor Crest,5600,07/02/26,pending approval,4
+PO-1092,Ionix Goods,10100,03-Jul-2026,received,5
+PO-1093,Juniper Supply,7200,2026-07-04,left warehouse,0
+PO-1094,Kraken Works,"$17,800",07/05/26,on the truck,One
+PO-1095,Lighthouse Parts,,06-Jul-2026,stuck in customs,2
+PO-1096,Monarch Source,8500,2026-07-07,driver delayed,3
+PO-1097,Northstar Dynamics,6900,07/08/26,pending approval,4
+PO-1098,OpenRange Corp,"$11,600",05-Jul-2026,received,5
+PO-1099,Prime Vector,7800,2026-06-27,left warehouse,0
+PO-1100,Quickspan LLC,9200,06/28/26,on the truck,1
